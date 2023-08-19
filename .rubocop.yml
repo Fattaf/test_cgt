@@ -1,0 +1,19 @@
+require:
+  - rubocop-factory_bot
+  - rubocop-rails
+  - rubocop-rspec
+
+AllCops:
+  NewCops: enable
+
+Style/Documentation:
+  Enabled: false
+
+Style/Encoding:
+  Enabled: false
+
+Style/RedundantConstantBase:
+  Enabled: false
+
+Layout/LineLength:
+  Max: 120
