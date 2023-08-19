@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 # Optionally override some pagy default with your own in the pagy initializer
-Pagy::DEFAULT[:items] = 30        # items per page
-Pagy::DEFAULT[:size]  = [1,4,4,1] # nav bar links
+Pagy::DEFAULT[:items] = 30 # items per page
+Pagy::DEFAULT[:size]  = [1, 4, 4, 1] # nav bar links
 
 # Better user experience handled automatically
 require 'pagy/extras/overflow'

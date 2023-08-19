@@ -14,9 +14,9 @@ gem 'turbo-rails', '~> 1.4'
 
 gem 'bootsnap', require: false
 gem 'bootstrap', '~> 5.3.1'
+gem 'pagy', '~> 6.0.4'
 gem 'sassc-rails', '~> 2.1.2'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-gem 'pagy', '~> 6.0.4'
 
 group :development, :test do
   gem 'pry-byebug', '~> 3.10'

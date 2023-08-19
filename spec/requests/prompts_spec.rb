@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Prompts', type: :request do
+RSpec.describe 'Prompts' do
   describe 'GET /prompts' do
     let!(:prompt) { create(:prompt_query) }
 
