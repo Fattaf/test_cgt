@@ -18,6 +18,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 group :development, :test do
   gem 'pry-byebug', '~> 3.10'
   gem 'pry-rails', '~> 0.3.9'
+  gem 'rspec-rails', '~> 6.0'
 end
 
 group :development do
@@ -32,6 +33,5 @@ end
 group :test do
   gem 'factory_bot_rails', '~> 6.2'
   gem 'ffaker', '~> 2.21'
-  gem 'rspec-rails', '~> 6.0'
   gem 'shoulda-matchers', '~> 5.3'
 end
