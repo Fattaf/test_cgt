@@ -68,4 +68,6 @@ RSpec.configure do |config|
 
   config.include FactoryBot::Syntax::Methods
   # config.include CustomMatchers::Shoulda, type: :model
+
+  config.include Rails.application.routes.url_helpers, type: :request
 end

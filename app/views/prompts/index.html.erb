@@ -1,0 +1,55 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/css/boxicons.min.css" integrity="sha512-pVCM5+SN2+qwj36KonHToF2p1oIvoU3bsqxphdOIWMYmgr4ZqD3t5DjKvvetKhXGc/ZG5REYTT6ltKfExEei/Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.css" integrity="sha256-NAxhqDvtY0l4xn+YVa6WjAcmd94NNfttjNsDmNatFVc=" crossorigin="anonymous" />
+
+<div class="container">
+  <div class="row align-items-center">
+      <div class="col-md-6">
+        <h5 class="card-title">Prompts List:</span></h5>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="">
+        <div class="table-responsive">
+          <table class="table project-list-table align-middle table-borderless">
+            <thead>
+              <tr>
+                <th scope="col">Query</th>
+                <th scope="col" style="width: 100px;">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <%- @prompts.each do |row| %>
+                <tr>
+                  <td><%= row.query -%></td>
+                  <td>
+                    <ul class="list-inline mb-0">
+                      <li class="list-inline-item">
+                        <a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" class="px-2 text-primary">
+                          <i class="bx bx-pencil font-size-18"></i>
+                        </a>
+                      </li>
+                      <li class="list-inline-item">
+                        <a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" class="px-2 text-danger">
+                          <i class="bx bx-trash-alt font-size-18"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+              <%- end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-0 align-items-center pb-4">
+    <div class="col-sm-6">
+      <div class="float-sm-end">
+        <%== pagy_nav(@pagy) if @pagy.pages > 1 %>
+      </div>
+    </div>
+  </div>
+</div>
