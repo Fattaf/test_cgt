@@ -69,5 +69,6 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
   # config.include CustomMatchers::Shoulda, type: :model
 
-  config.include Rails.application.routes.url_helpers, type: :request
+  config.include Rails.application.routes.url_helpers,  type: :request
+  config.include TestHelpers::FullTextSearchTestHelper, full_text_search: true
 end
