@@ -1,12 +1,25 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/css/boxicons.min.css" integrity="sha512-pVCM5+SN2+qwj36KonHToF2p1oIvoU3bsqxphdOIWMYmgr4ZqD3t5DjKvvetKhXGc/ZG5REYTT6ltKfExEei/Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.css" integrity="sha256-NAxhqDvtY0l4xn+YVa6WjAcmd94NNfttjNsDmNatFVc=" crossorigin="anonymous" />
 
+<%- flash.each do |_type, msg| %>
+  <div class="alert alert-danger" role="alert">
+    <%= msg %>
+  </div>
+<% end %>
+
 <div class="container">
   <div class="row align-items-center">
-      <div class="col-md-6">
-        <h5 class="card-title">Prompts List:</span></h5>
-      </div>
+    <div class="col-md-6">
+      <h5 class="card-title">Prompts List:</span></h5>
+    </div>
+    <div class="col-md-6">
+      <%= form_tag(search_prompts_path, method: :get, class: "input-group") do %>
+        <%= search_field_tag(:search_param, @search_param, class: "form-control rounded", placeholder: "Search") %>
+        <%= button_tag("Search", class: "btn btn-outline-primary") %>
+      <% end %>
+    </div>
   </div>
+
   <div class="row">
     <div class="col-lg-12">
       <div class="">
@@ -14,8 +27,8 @@
           <table class="table project-list-table align-middle table-borderless">
             <thead>
               <tr>
-                <th scope="col">Query</th>
-                <th scope="col" style="width: 100px;">Action</th>
+                <th scope="col">Query List:</th>
+                <th scope="col" style="width: 100px;">Actions:</th>
               </tr>
             </thead>
             <tbody>
@@ -37,7 +50,7 @@
                     </ul>
                   </td>
                 </tr>
-              <%- end %>
+              <% end %>
             </tbody>
           </table>
         </div>
@@ -46,9 +59,9 @@
   </div>
 
   <div class="row g-0 align-items-center pb-4">
-    <div class="col-sm-6">
+    <div class="col-sm-8">
       <div class="float-sm-end">
-        <%== pagy_nav(@pagy) if @pagy.pages > 1 %>
+        <%== pagy_bootstrap_nav(@pagy) if @pagy.pages > 1 %>
       </div>
     </div>
   </div>
