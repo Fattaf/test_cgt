@@ -18,6 +18,9 @@ gem 'pagy', '~> 6.0.4'
 gem 'sassc-rails', '~> 2.1.2'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
+gem 'opensearch-ruby', '~> 2.1.0' # tightly connected to searchkick gem
+gem 'searchkick', '~> 5.3.0'
+
 group :development, :test do
   gem 'pry-byebug', '~> 3.10'
   gem 'pry-rails', '~> 0.3.9'
