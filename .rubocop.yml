@@ -12,6 +12,9 @@ Style/Documentation:
 Style/Encoding:
   Enabled: false
 
+Style/HashSyntax:
+  Enabled: false
+
 Style/RedundantConstantBase:
   Enabled: false
 
