@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -e
+
+docker-compose -f docker-compose.yml up -d --wait
+
+sleep 5
+
+docker exec -i $(docker ps --format '{{.Names}}' | grep app) bundle exec rake db:drop db:create db:schema:load db:seed

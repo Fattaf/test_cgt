@@ -1,24 +1,25 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Ruby version:
 
-Things you may want to cover:
+- 3.2.0
 
-* Ruby version
+### Dependencies:
 
-* System dependencies
+- redis
+- postgres
+- opensearch
 
-* Configuration
+### Docker:
 
-* Database creation
+- ***bin/compose/build***  - for the building app in docker
+- ***bin/compose/start***  - for the docker-compose start
+- ***bin/compose/stop***   - for the docker-compose stop
+- ***bin/compose/finish*** - for the docker-compose stop and clean up
 
-* Database initialization
+***Caution: the current docker setup is for development and testing purposes only!***
 
-* How to run the test suite
+### Comments:
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- `Create`, `Edit`, & `Delete` button are left in TODO.
+- Deploying on Heroku was also left in TODO.

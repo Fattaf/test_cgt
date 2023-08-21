@@ -13,4 +13,4 @@ test:
 
 production:
   <<: *default
-  database: test_cgt_test
+  url:  <%= ENV['DATABASE_URL'] %>

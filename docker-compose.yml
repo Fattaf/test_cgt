@@ -1,0 +1,46 @@
+version: "3.9"
+services:
+  postgres:
+    image: postgres:14-alpine
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: 'trust'
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: ''
+  redis:
+    image: redis:6.0-alpine
+    ports:
+      - '6379:6379'
+  opensearch:
+    image: opensearchproject/opensearch:2.6.0
+    ports:
+      - '9200:9200'
+    environment:
+      - discovery.type=single-node
+      - plugins.security.disabled=true
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./app:/app/app
+      - ./db:/app/db
+      - ./lib:/app/lib
+      - ./spec:/app/spec
+    ports:
+      - '3000:3000'
+    environment:
+      RAILS_ENV: 'development'
+      APP_HOST: 'app:3000'
+      REDIS_URL: 'redis://redis:6379'
+      OPENSEARCH_URL: 'http://opensearch:9200'
+      POSTGRES_HOST: 'postgres'
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: ''
+    depends_on:
+      - postgres
+      - redis
+      - opensearch
